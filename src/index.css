@@ -1,13 +1,32 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(#272929), to(black));
+  background: linear-gradient(#272929, black);
+  background-size: cover;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card-title {
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
+.sidebar {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 300px;
+  background-color: black;
+}
+
+.sidebar .searchBar {
+  width: 40% !important;
+  background: #363636;
+  border: none;
+}
+/*# sourceMappingURL=index.css.map */

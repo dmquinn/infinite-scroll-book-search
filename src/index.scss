@@ -1,0 +1,27 @@
+body {
+	overflow-x: hidden;
+	height: 100vh;
+	background: linear-gradient(rgb(39, 41, 41), rgb(0, 0, 0));
+	background-size: cover;
+}
+.card-title {
+	overflow: hidden;
+	color: rgba(0, 0, 0, 0.85);
+	font-weight: 500;
+	font-size: 16px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.sidebar {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 100vh;
+	width: 300px;
+	background-color: black;
+	.searchBar {
+		width: 40% !important;
+		background: rgb(54, 54, 54);
+		border: none;
+	}
+}
