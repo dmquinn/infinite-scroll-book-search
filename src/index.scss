@@ -1,7 +1,6 @@
 body {
 	overflow-x: hidden;
 	height: 100vh;
-	background: linear-gradient(rgb(39, 41, 41), rgb(0, 0, 0));
 	background-size: cover;
 }
 .card-title {
@@ -13,15 +12,22 @@ body {
 	text-overflow: ellipsis;
 }
 .sidebar {
-	position: absolute;
+	position: fixed;
 	left: 0px;
 	top: 0px;
 	height: 100vh;
 	width: 300px;
 	background-color: black;
-	.searchBar {
-		width: 40% !important;
-		background: rgb(54, 54, 54);
+	.search {
+		width: 200px !important;
+		background: rgb(255, 255, 255);
+		border: none;
+		outline: none;
+		height: 40px;
+	}
+	.searchButton {
+		color: black;
+		background: white;
 		border: none;
 	}
 }

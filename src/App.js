@@ -1,32 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
-import {
-	InputGroup,
-	Input,
-	InputGroupAddon,
-	Button,
-	Spinner,
-} from "reactstrap";
 import axios from "axios";
+import { Spinner, Col } from "reactstrap";
 import BookCard from "./components/BookCard";
 import Sidebar from "./components/Sidebar";
 
-function App({ results }) {
-	const [maxResults, setMaxResults] = useState(20);
-	const [startIndex, setStartIndex] = useState(1);
-	const [query, setQuery] = useState("");
+function App() {
 	const [loading, setLoading] = useState(false);
 	const [cards, setCards] = useState([]);
 
-	// Main Show Case
-	const mainHeader = (props) => {
-		console.log(props);
-		return (
-			<>
-				<Sidebar results={results} />
-			</>
-		);
-	};
+	function test(testArray) {
+		if (testArray.length > 0) {
+			setCards(testArray);
+		}
+	}
+	// const mainHeader = () => {
+	// 	return (
+	// 		<>
+	// 			<Col lg={3}>
+	// 				<Sidebar test={test} />
+	// 			</Col>
+	// 		</>
+	// 	);
+	// };
 
 	const handleCards = () => {
 		if (loading) {
@@ -65,10 +61,32 @@ function App({ results }) {
 			);
 		}
 	};
+
+	useEffect(() => {
+		axios.get`https://www.googleapis.com/books/v1/volumes?q=penguin+classics&maxResults=20&startIndex=1`
+			.then((res) => {
+				if (res.data.items.length > 0) {
+					// console.log("res.data", res.data);
+					setCards(res.data.items);
+					// test(res.data.items);
+					setLoading(false);
+				}
+			})
+			.catch((err) => {
+				setLoading(true);
+				console.log(err.response);
+			});
+	}, []);
 	return (
-		<div className="w-100 h-100">
-			{mainHeader()}
-			{handleCards()}
+		<div>
+			{/* <Col lg={4}> */}
+			<Sidebar />
+			{/* </Col> */}
+			{/* {mainHeader()} */}
+			<Col lg={8} className="offset-4">
+				{" "}
+				{handleCards()}
+			</Col>
 		</div>
 	);
 }

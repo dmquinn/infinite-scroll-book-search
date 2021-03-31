@@ -1,8 +1,6 @@
 body {
   overflow-x: hidden;
   height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(#272929), to(black));
-  background: linear-gradient(#272929, black);
   background-size: cover;
 }
 
@@ -16,7 +14,7 @@ body {
 }
 
 .sidebar {
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   height: 100vh;
@@ -24,9 +22,17 @@ body {
   background-color: black;
 }
 
-.sidebar .searchBar {
-  width: 40% !important;
-  background: #363636;
+.sidebar .search {
+  width: 200px !important;
+  background: white;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+
+.sidebar .searchButton {
+  color: black;
+  background: white;
   border: none;
 }
 /*# sourceMappingURL=index.css.map */

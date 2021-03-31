@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Card, CardTitle, CardImg, CardBody, Button, Modal } from "reactstrap";
+import { Card, CardTitle, CardImg, CardBody, Modal } from "reactstrap";
+
+const colors = ["red", "blue", "green"];
+
 const BookCard = ({
 	thumbnail,
 	title,
@@ -16,17 +19,29 @@ const BookCard = ({
 	const toggle = () => setModal(!modal);
 
 	return (
-		<Card style={{ width: "233px" }} className="m-auto ">
-			<CardImg
+		<Card style={{ width: "233px" }} className=" ">
+			{/* <CardImg
 				top
 				style={{ width: "100%", height: "233px" }}
 				src={thumbnail}
 				alt={title}
 				onClick={toggle}
-			/>
-			<CardBody>
+			/> */}
+			<div
+				onClick={toggle}
+				style={{
+					height: "320px",
+					padding: "9px",
+					backgroundColor:
+						colors[Math.floor(Math.random() * colors.length)],
+				}}
+			>
+				<h3 className="mt-3">{title}</h3>
+				<h4 className="mt-1">{authors}</h4>
+			</div>
+			{/* <CardBody>
 				<CardTitle className="card-title">{title}</CardTitle>
-			</CardBody>
+			</CardBody> */}
 			<Modal isOpen={modal} toggle={toggle}>
 				<div className="modal-header d-flex justify-content-center">
 					<h5

@@ -3,10 +3,10 @@ import { Row } from "reactstrap";
 import SearchBar from "./SearchBar";
 import library from "../libraryIcon.svg";
 
-function Sidebar() {
+function Sidebar({ test }) {
 	return (
 		<div>
-			<SearchBar />
+			<SearchBar test={test} />
 			<Row>
 				<img
 					className="offset-2 mt-5"
